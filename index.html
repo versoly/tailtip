@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailtip</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer components {
+        .btn {
+          @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+        }
+        .tooltip {
+          @apply hidden opacity-0 transition-all duration-[300ms] bg-black text-white absolute top-0 left-0 rounded px-1 py-0.5;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="flex flex-col gap-y-3 w-screen h-screen">
+      <div class="flex flex-row justify-start items-center gap-x-1">
+        <span>On Click</span>
+        <span
+          class="flex w-4 h-4 bg-black text-white items-center justify-center rounded-full text-xs font-medium"
+          data-toggle="tooltip"
+          data-options="{'trigger': 'click'}"
+          >i</span
+        >
+        <div class="tooltip" role="tooltip">
+          <div class="tooltip-inner">
+            <span
+              >Add your own custom domain to a Versoly site with SSL
+              included.</span
+            >
+          </div>
+          <div class="tooltip-arrow"></div>
+        </div>
+      </div>
+      <div class="flex flex-row justify-start items-center gap-x-1">
+        <span>On Hover</span>
+        <span
+          class="flex w-4 h-4 bg-black text-white items-center justify-center rounded-full text-xs font-medium"
+          data-toggle="tooltip"
+          data-options="{'placement': 'right'}"
+          >i</span
+        >
+        <div class="tooltip" role="tooltip">
+          <div class="tooltip-inner">
+            <span
+              >Add your own custom domain to a Versoly site with SSL
+              included.</span
+            >
+          </div>
+          <div class="tooltip-arrow"></div>
+        </div>
+      </div>
+    </section>
+
+    <script type="module">
+      import Tailtip from './src';
+
+      const parseElemOptions = (elem) =>
+        JSON.parse((elem.dataset.options || '{}').replaceAll("'", '"'));
+
+      window.vTailtips = [];
+
+      document.querySelectorAll('[data-toggle="tooltip"]').forEach((elem) => {
+        const tailtip = Tailtip(elem, parseElemOptions(elem));
+        window.vTailtips.push(tailtip);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "name": "tailtip",
+  "version": "1.0.3",
+  "description": "Tailtip - A tiny Tailwind friendly tooltip library",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "keywords": [
+    "tailtip",
+    "tooltips",
+    "tailwind tooltips"
+  ],
+  "license": "MIT",
+  "main": "dist/tailtip.umd.cjs",
+  "unpkg": "dist/tailtip.iife.js",
+  "jsdelivr": "dist/tailtip.iife.js",
+  "module": "./dist/tailtip.js",
+  "exports": {
+    ".": {
+      "import": "./dist/tailtip.js",
+      "require": "./dist/tailtip.umd.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/versoly/tailtip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/versoly/tailtip/issues"
+  },
+  "homepage": "https://versoly.com/tailtip",
+  "contributors": [
+    "Volkan Kaya <volkan@versoly.com>"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "1.5.3"
+  },
+  "devDependencies": {
+    "vite": "^5.0.6"
+  },
+  "author": "Versoly"
+}
